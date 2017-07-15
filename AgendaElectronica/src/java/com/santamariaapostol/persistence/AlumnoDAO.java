@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.santamariaapostol.model;
+package com.santamariaapostol.persistence;
 
-import com.santamariapostol.entity.Asistencia;
+import com.santamariapostol.entity.Alumno;
 
 /**
  *
  * @author alonsorn
  */
-public interface AsistenciaDAO extends GenericDAO<Asistencia>{
+public interface AlumnoDAO extends GenericDAO<Alumno>{
     
 }

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.santamariaapostol.model;
+package com.santamariaapostol.persistence;
 
-import com.santamariapostol.entity.Apoderado;
+import com.santamariapostol.entity.Citacion;
 
 /**
  *
  * @author alonsorn
  */
-public interface ApoderadoDAO extends GenericDAO<Apoderado>{
+public interface CitacionDAO extends GenericDAO<Citacion>{
     
 }

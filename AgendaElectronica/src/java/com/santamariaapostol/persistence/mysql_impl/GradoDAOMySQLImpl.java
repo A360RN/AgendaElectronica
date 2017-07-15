@@ -3,30 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.santamariaapostol.model.mysql_impl;
+package com.santamariaapostol.persistence.mysql_impl;
 
-import com.santamariaapostol.model.AlumnoDAO;
-import com.santamariapostol.entity.Alumno;
+import com.santamariaapostol.persistence.GradoDAO;
+import com.santamariapostol.entity.Grado;
 import java.util.List;
 
 /**
  *
  * @author alonsorn
  */
-public class AlumnoDAOImpl implements AlumnoDAO{
+public class GradoDAOMySQLImpl implements GradoDAO{
 
     @Override
-    public void insert(Alumno obj) {
+    public void insert(Grado obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Alumno obj) {
+    public void update(Grado obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Alumno findById(int id) {
+    public Grado findById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -36,7 +36,7 @@ public class AlumnoDAOImpl implements AlumnoDAO{
     }
 
     @Override
-    public List<Alumno> readAll() {
+    public List<Grado> readAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
