@@ -16,27 +16,27 @@ import java.util.List;
 public class AsistenciaDAOMySQLImpl implements AsistenciaDAO {
 
     @Override
-    public void insert(Asistencia obj) {
+    public void crear(Asistencia obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Asistencia obj) {
+    public void actualizar(Asistencia obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Asistencia findById(int id) {
+    public Asistencia buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Asistencia> readAll() {
+    public List<Asistencia> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

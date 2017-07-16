@@ -5,28 +5,28 @@
  */
 package com.santamariaapostol.persistence.mysql_impl;
 
-import com.santamariaapostol.persistence.AlumnoDAO;
-import com.santamariapostol.entity.Alumno;
+import com.santamariaapostol.persistence.PeriodoDAO;
+import com.santamariapostol.entity.Periodo;
 import java.util.List;
 
 /**
  *
  * @author alonsorn
  */
-public class AlumnoDAOMySQLImpl implements AlumnoDAO{
+public class PeriodoDAOMySQLImpl implements PeriodoDAO {
 
     @Override
-    public void crear(Alumno obj) {
+    public void crear(Periodo obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar(Alumno obj) {
+    public void actualizar(Periodo obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Alumno buscarPorId(int id) {
+    public Periodo buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -36,8 +36,8 @@ public class AlumnoDAOMySQLImpl implements AlumnoDAO{
     }
 
     @Override
-    public List<Alumno> buscarTodos() {
+    public List<Periodo> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

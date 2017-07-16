@@ -16,27 +16,27 @@ import java.util.List;
 public class ObservacionDAOMySQLImpl implements ObservacionDAO{
 
     @Override
-    public void insert(Observacion obj) {
+    public void crear(Observacion obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Observacion obj) {
+    public void actualizar(Observacion obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Observacion findById(int id) {
+    public Observacion buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Observacion> readAll() {
+    public List<Observacion> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

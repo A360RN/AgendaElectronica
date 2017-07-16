@@ -16,27 +16,27 @@ import java.util.List;
 public class CursoDAOMySQLImpl implements CursoDAO {
 
     @Override
-    public void insert(Curso obj) {
+    public void crear(Curso obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Curso obj) {
+    public void actualizar(Curso obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Curso findById(int id) {
+    public Curso buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Curso> readAll() {
+    public List<Curso> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

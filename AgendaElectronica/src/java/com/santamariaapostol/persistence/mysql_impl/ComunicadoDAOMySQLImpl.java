@@ -16,27 +16,27 @@ import java.util.List;
 public class ComunicadoDAOMySQLImpl implements ComunicadoDAO{
 
     @Override
-    public void insert(Comunicado obj) {
+    public void crear(Comunicado obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Comunicado obj) {
+    public void actualizar(Comunicado obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Comunicado findById(int id) {
+    public Comunicado buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Comunicado> readAll() {
+    public List<Comunicado> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

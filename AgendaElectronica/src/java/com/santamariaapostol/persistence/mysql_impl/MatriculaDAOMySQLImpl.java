@@ -16,27 +16,27 @@ import java.util.List;
 public class MatriculaDAOMySQLImpl implements MatriculaDAO{
 
     @Override
-    public void insert(Matricula obj) {
+    public void crear(Matricula obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Matricula obj) {
+    public void actualizar(Matricula obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Matricula findById(int id) {
+    public Matricula buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Matricula> readAll() {
+    public List<Matricula> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

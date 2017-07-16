@@ -16,27 +16,27 @@ import java.util.List;
 public class ProfesorDAOMySQLImpl implements ProfesorDAO {
 
     @Override
-    public void insert(Profesor obj) {
+    public void crear(Profesor obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Profesor obj) {
+    public void actualizar(Profesor obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Profesor findById(int id) {
+    public Profesor buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Profesor> readAll() {
+    public List<Profesor> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

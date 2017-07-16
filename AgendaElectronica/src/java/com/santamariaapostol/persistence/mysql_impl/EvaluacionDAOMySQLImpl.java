@@ -16,27 +16,27 @@ import java.util.List;
 public class EvaluacionDAOMySQLImpl implements EvaluacionDAO {
 
     @Override
-    public void insert(Evaluacion obj) {
+    public void crear(Evaluacion obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Evaluacion obj) {
+    public void actualizar(Evaluacion obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Evaluacion findById(int id) {
+    public Evaluacion buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Evaluacion> readAll() {
+    public List<Evaluacion> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

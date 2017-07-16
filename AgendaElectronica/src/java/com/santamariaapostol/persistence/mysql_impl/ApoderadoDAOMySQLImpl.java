@@ -16,27 +16,27 @@ import java.util.List;
 public class ApoderadoDAOMySQLImpl implements ApoderadoDAO{
 
     @Override
-    public void insert(Apoderado obj) {
+    public void crear(Apoderado obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Apoderado obj) {
+    public void actualizar(Apoderado obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Apoderado findById(int id) {
+    public Apoderado buscarPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Apoderado> readAll() {
+    public List<Apoderado> buscarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

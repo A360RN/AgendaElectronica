@@ -1,3 +1,4 @@
+-- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -10,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema agenda
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `agenda` DEFAULT CHARACTER SET utf8mb4 ;
+CREATE SCHEMA IF NOT EXISTS `agenda` DEFAULT CHARACTER SET utf8 ;
 USE `agenda` ;
 
 -- -----------------------------------------------------
@@ -25,7 +26,11 @@ CREATE TABLE IF NOT EXISTS `agenda`.`PROFESOR` (
   `apellido` VARCHAR(45) NOT NULL,
   `last_name2` VARCHAR(45) NOT NULL,
   `dni` VARCHAR(8) NOT NULL,
-  PRIMARY KEY (`idProfesor`))
+  `usuario` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idProfesor`),
+  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC),
+  UNIQUE INDEX `password_UNIQUE` (`password` ASC))
 ENGINE = InnoDB;
 
 
@@ -41,8 +46,11 @@ CREATE TABLE IF NOT EXISTS `agenda`.`APODERADO` (
   `apellido` VARCHAR(45) NOT NULL,
   `apellido2` VARCHAR(45) NOT NULL,
   `dni` VARCHAR(8) NOT NULL,
+  `usuario` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idApoderado`),
-  UNIQUE INDEX `dni_UNIQUE` (`dni` ASC))
+  UNIQUE INDEX `dni_UNIQUE` (`dni` ASC),
+  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC))
 ENGINE = InnoDB;
 
 
@@ -158,6 +166,20 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `agenda`.`PERIODO`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `agenda`.`PERIODO` ;
+
+CREATE TABLE IF NOT EXISTS `agenda`.`PERIODO` (
+  `idPeriodo` INT NOT NULL AUTO_INCREMENT,
+  `anio` INT NOT NULL,
+  `estado` VARCHAR(45) NULL,
+  PRIMARY KEY (`idPeriodo`),
+  UNIQUE INDEX `anio_UNIQUE` (`anio` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `agenda`.`MATRICULA`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `agenda`.`MATRICULA` ;
@@ -166,10 +188,11 @@ CREATE TABLE IF NOT EXISTS `agenda`.`MATRICULA` (
   `idMatricula` INT NOT NULL AUTO_INCREMENT,
   `idAlumno` INT NOT NULL,
   `idSeccion` INT NOT NULL,
-  `promedioFinal` DECIMAL(4,2) NOT NULL DEFAULT 0,
+  `idPeriodo` INT NOT NULL,
   PRIMARY KEY (`idMatricula`),
   INDEX `fk_MATRICULA_ALUMNO1_idx` (`idAlumno` ASC),
   INDEX `fk_MATRICULA_SECCION1_idx` (`idSeccion` ASC),
+  INDEX `fk_MATRICULA_PERIODO1_idx` (`idPeriodo` ASC),
   CONSTRAINT `fk_MATRICULA_ALUMNO1`
     FOREIGN KEY (`idAlumno`)
     REFERENCES `agenda`.`ALUMNO` (`idAlumno`)
@@ -178,6 +201,11 @@ CREATE TABLE IF NOT EXISTS `agenda`.`MATRICULA` (
   CONSTRAINT `fk_MATRICULA_SECCION1`
     FOREIGN KEY (`idSeccion`)
     REFERENCES `agenda`.`SECCION` (`idSeccion`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_MATRICULA_PERIODO1`
+    FOREIGN KEY (`idPeriodo`)
+    REFERENCES `agenda`.`PERIODO` (`idPeriodo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -216,6 +244,26 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `agenda`.`BIMESTRE`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `agenda`.`BIMESTRE` ;
+
+CREATE TABLE IF NOT EXISTS `agenda`.`BIMESTRE` (
+  `idBimestre` INT NOT NULL AUTO_INCREMENT,
+  `nroBimestre` INT NOT NULL,
+  `estado` VARCHAR(45) NULL,
+  `idPeriodo` INT NOT NULL,
+  PRIMARY KEY (`idBimestre`),
+  INDEX `fk_BIMESTRE_PERIODO1_idx` (`idPeriodo` ASC),
+  CONSTRAINT `fk_BIMESTRE_PERIODO1`
+    FOREIGN KEY (`idPeriodo`)
+    REFERENCES `agenda`.`PERIODO` (`idPeriodo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `agenda`.`EVALUACION`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `agenda`.`EVALUACION` ;
@@ -227,9 +275,11 @@ CREATE TABLE IF NOT EXISTS `agenda`.`EVALUACION` (
   `nota` DECIMAL(4,2) NULL DEFAULT 0,
   `idMatricula` INT NOT NULL,
   `idCurso` INT NOT NULL,
+  `idBimestre` INT NOT NULL,
   PRIMARY KEY (`idEvaluacion`),
   INDEX `fk_EVALUACION_MATRICULA1_idx` (`idMatricula` ASC),
   INDEX `fk_EVALUACION_CURSO1_idx` (`idCurso` ASC),
+  INDEX `fk_EVALUACION_BIMESTRE1_idx` (`idBimestre` ASC),
   CONSTRAINT `fk_EVALUACION_MATRICULA1`
     FOREIGN KEY (`idMatricula`)
     REFERENCES `agenda`.`MATRICULA` (`idMatricula`)
@@ -238,6 +288,11 @@ CREATE TABLE IF NOT EXISTS `agenda`.`EVALUACION` (
   CONSTRAINT `fk_EVALUACION_CURSO1`
     FOREIGN KEY (`idCurso`)
     REFERENCES `agenda`.`CURSO` (`idCurso`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_EVALUACION_BIMESTRE1`
+    FOREIGN KEY (`idBimestre`)
+    REFERENCES `agenda`.`BIMESTRE` (`idBimestre`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
