@@ -19,6 +19,8 @@ public class Profesor implements Serializable {
     private String segundoNombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
+    private String usuario;
+    private String password;
     private Seccion seccion;
     private List<Citacion> citaciones;
 
@@ -89,4 +91,21 @@ public class Profesor implements Serializable {
         this.citaciones = citaciones;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
 }

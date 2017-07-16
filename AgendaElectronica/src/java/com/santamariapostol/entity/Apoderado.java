@@ -19,6 +19,9 @@ public class Apoderado implements Serializable {
     private String segundoNombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
+    private String dni;
+    private String usuario;
+    private String password;
     private List<Alumno> alumnos;
     private List<Citacion> citaciones;
 
@@ -89,4 +92,29 @@ public class Apoderado implements Serializable {
         this.citaciones = citaciones;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
 }
