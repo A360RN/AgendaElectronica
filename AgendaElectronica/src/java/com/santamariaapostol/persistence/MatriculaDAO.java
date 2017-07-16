@@ -5,7 +5,7 @@
  */
 package com.santamariaapostol.persistence;
 
-import com.santamariapostol.entity.Matricula;
+import com.santamariaapostol.entity.Matricula;
 
 /**
  *

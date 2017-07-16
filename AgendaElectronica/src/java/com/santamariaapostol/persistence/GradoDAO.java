@@ -5,7 +5,7 @@
  */
 package com.santamariaapostol.persistence;
 
-import com.santamariapostol.entity.Grado;
+import com.santamariaapostol.entity.Grado;
 
 /**
  *

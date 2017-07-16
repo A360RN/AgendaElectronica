@@ -6,7 +6,7 @@
 package com.santamariaapostol.persistence.mysql_impl;
 
 import com.santamariaapostol.persistence.BimestreDAO;
-import com.santamariapostol.entity.Bimestre;
+import com.santamariaapostol.entity.Bimestre;
 import java.util.List;
 
 /**

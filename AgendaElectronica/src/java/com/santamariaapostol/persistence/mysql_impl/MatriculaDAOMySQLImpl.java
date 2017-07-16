@@ -6,7 +6,7 @@
 package com.santamariaapostol.persistence.mysql_impl;
 
 import com.santamariaapostol.persistence.MatriculaDAO;
-import com.santamariapostol.entity.Matricula;
+import com.santamariaapostol.entity.Matricula;
 import java.util.List;
 
 /**

@@ -5,7 +5,7 @@
  */
 package com.santamariaapostol.persistence;
 
-import com.santamariapostol.entity.Asistencia;
+import com.santamariaapostol.entity.Asistencia;
 
 /**
  *

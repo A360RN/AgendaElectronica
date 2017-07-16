@@ -6,7 +6,7 @@
 package com.santamariaapostol.persistence.mysql_impl;
 
 import com.santamariaapostol.persistence.CitacionDAO;
-import com.santamariapostol.entity.Citacion;
+import com.santamariaapostol.entity.Citacion;
 import java.util.List;
 
 /**

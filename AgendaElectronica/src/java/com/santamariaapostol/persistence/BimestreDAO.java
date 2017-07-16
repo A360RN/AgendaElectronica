@@ -5,7 +5,7 @@
  */
 package com.santamariaapostol.persistence;
 
-import com.santamariapostol.entity.Bimestre;
+import com.santamariaapostol.entity.Bimestre;
 
 /**
  *

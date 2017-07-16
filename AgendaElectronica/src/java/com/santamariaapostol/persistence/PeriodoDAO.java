@@ -5,7 +5,7 @@
  */
 package com.santamariaapostol.persistence;
 
-import com.santamariapostol.entity.Periodo;
+import com.santamariaapostol.entity.Periodo;
 
 /**
  *
