@@ -13,4 +13,6 @@ public class PageHelper {
     
     public static final String INDEX_PAGE = "index.jsp";
     public static final String LOGIN_PAGE = "login.jsp";
+    
+    public static final String DASHBOARD = "dashboard.jsp";
 }

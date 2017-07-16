@@ -67,6 +67,11 @@ public class LoginController extends HttpServlet {
         }
     }
 
+    /*
+        Valida el usuario, si lo encuentra
+        determina si es un profesor o apoderado y lo
+        coloca en el objeto session
+    */
     private void validarLogin(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usuario = request.getParameter("username");
@@ -84,12 +89,12 @@ public class LoginController extends HttpServlet {
             profesor = loginService.validarProfesor(profesor);
             request.getSession(true).setAttribute("usuario", profesor);
             request.getSession().setAttribute("tipo_usuario", "profesor");
-            response.sendRedirect(PageHelper.INDEX_PAGE);
+            response.sendRedirect(PageHelper.DASHBOARD);
         }else if(loginService.validarApoderado(apoderado)!= null){
             apoderado = loginService.validarApoderado(apoderado);
             request.getSession(true).setAttribute("usuario", apoderado);
             request.getSession().setAttribute("tipo_usuario", "apoderado");
-            response.sendRedirect(PageHelper.INDEX_PAGE);
+            response.sendRedirect(PageHelper.DASHBOARD);
         }else{
             response.sendRedirect(PageHelper.LOGIN_PAGE);
         }
