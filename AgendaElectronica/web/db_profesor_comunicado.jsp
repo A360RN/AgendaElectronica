@@ -16,14 +16,14 @@
     <%if(listaComunicados!=null){ %>
     <div class="col m9 s12">
         <h2>Ultimos Comunicados Enviados</h2>
-        <%for(Comunicado c: listaComunicados){ %>
         <ul class="collapsible" data-collapsible="accordion">
+        <%for(Comunicado c: listaComunicados){ %>
             <li>
                 <div class="collapsible-header"><%= c.getTitulo() %></div>
                 <div class="collapsible-body"><span><%= c.getCuerpo() %></span></div>
             </li>
-        </ul>
         <% }%>
+        </ul>
         <a href="nuevo_comunicado.jsp" class="btn waves-effect waves-light grey darken-1">Nuevo Comunicado</a>
     </div>
     <% } else {%>
