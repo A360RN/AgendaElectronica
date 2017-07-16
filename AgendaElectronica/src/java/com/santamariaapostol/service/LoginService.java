@@ -17,7 +17,7 @@ import com.santamariaapostol.persistence.mysql_impl.ProfesorDAOMySQLImpl;
  * @author alonsorn
  */
 public class LoginService {
-    
+
     private ProfesorDAO profesorDAO;
     private ApoderadoDAO apoderadoDAO;
 
@@ -25,32 +25,34 @@ public class LoginService {
         profesorDAO = new ProfesorDAOMySQLImpl();
         apoderadoDAO = new ApoderadoDAOMySQLImpl();
     }
-    
-    
-    
-    public boolean validarProfesor(Profesor profesor){
+
+    public Profesor validarProfesor(Profesor profesor) {
         String usuario = profesor.getUsuario();
         String passwordPosible = profesor.getPassword();
-        
+
         Profesor profesorObtenido = profesorDAO.buscarPorUsuario(usuario);
-        
-        if(profesorObtenido!= null){
+
+        if (profesorObtenido != null ) {
             String passwordReal = profesorObtenido.getPassword();
-            return passwordReal.equals(passwordPosible);
+            if(passwordReal.equals(passwordPosible)){
+                return profesorObtenido;
+            }
         }
-        return false;
+        return null;
     }
-    
-    public boolean validarApoderado(Apoderado apoderado){
+
+    public Apoderado validarApoderado(Apoderado apoderado) {
         String usuario = apoderado.getUsuario();
         String passwordPosible = apoderado.getPassword();
-        
+
         Apoderado apoderadoObtenido = apoderadoDAO.buscarPorUsuario(usuario);
-        
-        if(apoderadoObtenido!=null){
+
+        if (apoderadoObtenido != null) {
             String passwordReal = apoderadoObtenido.getPassword();
-            return passwordReal.equals(passwordPosible);
+            if(passwordReal.equals(passwordPosible)){
+                return apoderadoObtenido;
+            }
         }
-        return false;
+        return null;
     }
 }

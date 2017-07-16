@@ -24,13 +24,12 @@ CREATE TABLE IF NOT EXISTS `agenda`.`PROFESOR` (
   `primer_nombre` VARCHAR(45) NOT NULL,
   `segundo_nombre` VARCHAR(45) NULL,
   `apellido` VARCHAR(45) NOT NULL,
-  `last_name2` VARCHAR(45) NOT NULL,
+  `apellido2` VARCHAR(45) NOT NULL,
   `dni` VARCHAR(8) NOT NULL,
   `usuario` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idProfesor`),
-  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC),
-  UNIQUE INDEX `password_UNIQUE` (`password` ASC))
+  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC))
 ENGINE = InnoDB;
 
 

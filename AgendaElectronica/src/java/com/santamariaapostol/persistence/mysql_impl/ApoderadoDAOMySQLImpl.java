@@ -53,7 +53,7 @@ public class ApoderadoDAOMySQLImpl implements ApoderadoDAO{
         Apoderado apoderado = null;
         try {
             cn = Conexion.ini();
-            sql = "select from APODERADO where usuario = ?";
+            sql = "select * from APODERADO where usuario = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, username);
             

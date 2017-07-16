@@ -54,7 +54,7 @@ public class ProfesorDAOMySQLImpl implements ProfesorDAO {
         Profesor profesor = null;
         try {
             cn = Conexion.ini();
-            sql = "select from APODERADO where usuario = ?";
+            sql = "select * from PROFESOR where usuario = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, username);
             
@@ -62,11 +62,11 @@ public class ProfesorDAOMySQLImpl implements ProfesorDAO {
             
             if(rs.next()){
                 profesor = new Profesor();
-                profesor.setIdProfesor(rs.getInt("idApoderado"));
+                profesor.setIdProfesor(rs.getInt("idProfesor"));
                 profesor.setPrimerNombre(rs.getString("primer_nombre"));
                 profesor.setSegundoNombre(rs.getString("segundo_nombre"));
                 profesor.setApellidoPaterno(rs.getString("apellido"));
-                profesor.setApellidoMaterno(rs.getString("last_name2"));
+                profesor.setApellidoMaterno(rs.getString("apellido2"));
                 profesor.setDni(rs.getString("dni"));
                 profesor.setUsuario(rs.getString("usuario"));
                 profesor.setPassword(rs.getString("password"));
