@@ -15,4 +15,5 @@ public class SessionStringHelpers {
     public static final String TIPO_USUARIO = "tipo_usuario";
     
     public static final String LISTA_COMUNICADOS = "comunicados";
+    public static final String LISTA_ALUMNOS = "alumnos";
 }

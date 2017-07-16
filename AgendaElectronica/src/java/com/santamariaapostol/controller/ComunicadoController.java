@@ -5,6 +5,8 @@
  */
 package com.santamariaapostol.controller;
 
+import com.santamariaapostol.entity.Alumno;
+import com.santamariaapostol.entity.Apoderado;
 import com.santamariaapostol.entity.Comunicado;
 import com.santamariaapostol.entity.Profesor;
 import com.santamariaapostol.service.ComunicadoService;
@@ -90,9 +92,9 @@ public class ComunicadoController extends HttpServlet {
         String tipoUsuario = session.getAttribute(SessionStringHelpers.TIPO_USUARIO).toString();
         if (tipoUsuario.equals("profesor")) {
             ultimosComunicadosEnviados(session);
-
             response.sendRedirect(PageHelper.DASHBOARD_PROFESOR_COMUNICADO);
         } else if (tipoUsuario.equals("apoderado")) {
+            ultimosComunicadosRecibidos(session);
             response.sendRedirect(PageHelper.DASHBOARD_APODERADO_COMUNICADO);
         }
     }
@@ -101,6 +103,12 @@ public class ComunicadoController extends HttpServlet {
         Profesor profesor = (Profesor) session.getAttribute(SessionStringHelpers.USUARIO);
         List<Comunicado> listaComunicados = comunicadoService.ultimosComunicadosEnviados(profesor);
         session.setAttribute(SessionStringHelpers.LISTA_COMUNICADOS, listaComunicados);
+    }
+
+    private void ultimosComunicadosRecibidos(HttpSession session) {
+        Apoderado apoderado = (Apoderado)session.getAttribute(SessionStringHelpers.USUARIO);
+        List<Alumno> alumnos = comunicadoService.ultimosComunicadosRecibidos(apoderado);
+        session.setAttribute(SessionStringHelpers.LISTA_ALUMNOS,alumnos );
     }
 
 }

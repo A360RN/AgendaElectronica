@@ -15,4 +15,6 @@ import java.util.List;
 public interface ComunicadoDAO extends GenericDAO<Comunicado>{
     
     public List<Comunicado> ultimosComunicadosEnviados(int idSeccion);
+    
+    public List<Comunicado> comunicadosPorAlumno(int idAlumno);
 }

@@ -85,5 +85,35 @@ public class ComunicadoDAOMySQLImpl implements ComunicadoDAO{
         }
         return listaComunicados;
     }
+
+    @Override
+    public List<Comunicado> comunicadosPorAlumno(int idAlumno) {
+        List<Comunicado> listaComunicados = new ArrayList<>();
+        try {
+            cn = Conexion.ini();
+            sql =  "select * from MATRICULA m join PERIODO p ON m.idPeriodo = p.idPeriodo"
+                    + " join SECCION s ON s.idSeccion = m.idSeccion"
+                    + " join COMUNICADO c ON c.idSeccion = s.idSeccion"
+                    + " where m.idAlumno = ? and p.estado = 'ACTIVO' limit 3";
+            
+            ps = cn.prepareStatement(sql);
+            
+            ps.setInt(1, idAlumno);
+            
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Comunicado comunicado = new Comunicado();
+                comunicado.setIdComunicado(rs.getInt("idComunicado"));
+                comunicado.setTitulo(rs.getString("titulo"));
+                comunicado.setCuerpo(rs.getString("cuerpo"));
+                
+                listaComunicados.add(comunicado);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listaComunicados;
+    }
     
 }

@@ -6,6 +6,7 @@
 package com.santamariaapostol.persistence;
 
 import com.santamariaapostol.entity.Alumno;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import com.santamariaapostol.entity.Alumno;
  */
 public interface AlumnoDAO extends GenericDAO<Alumno>{
     
+    public List<Alumno> buscarPorApoderado(int idApoderado);
 }
