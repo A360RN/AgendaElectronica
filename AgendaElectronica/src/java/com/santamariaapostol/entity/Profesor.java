@@ -19,6 +19,7 @@ public class Profesor implements Serializable {
     private String segundoNombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
+    private String dni;
     private String usuario;
     private String password;
     private Seccion seccion;
@@ -107,5 +108,12 @@ public class Profesor implements Serializable {
         this.password = password;
     }
 
-    
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
 }

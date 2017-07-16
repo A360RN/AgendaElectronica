@@ -13,4 +13,5 @@ import com.santamariaapostol.entity.Apoderado;
  */
 public interface ApoderadoDAO extends GenericDAO<Apoderado>{
     
+    public Apoderado buscarPorUsuario(String username);
 }

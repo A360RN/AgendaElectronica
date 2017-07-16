@@ -13,4 +13,5 @@ import com.santamariaapostol.entity.Profesor;
  */
 public interface ProfesorDAO extends GenericDAO<Profesor>{
     
+    public Profesor buscarPorUsuario(String username);
 }
