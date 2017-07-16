@@ -15,4 +15,6 @@ import java.util.List;
 public interface AlumnoDAO extends GenericDAO<Alumno>{
     
     public List<Alumno> buscarPorApoderado(int idApoderado);
+    
+    public List<Alumno> buscarPorProfesor(int idProfesor);
 }

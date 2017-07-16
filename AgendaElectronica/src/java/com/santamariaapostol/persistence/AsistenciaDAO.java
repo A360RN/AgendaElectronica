@@ -13,4 +13,5 @@ import com.santamariaapostol.entity.Asistencia;
  */
 public interface AsistenciaDAO extends GenericDAO<Asistencia>{
     
+    public Asistencia asistenciaHoyAlumno(int idAlumno);
 }
