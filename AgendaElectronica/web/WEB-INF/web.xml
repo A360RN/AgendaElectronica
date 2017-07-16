@@ -8,6 +8,10 @@
         <servlet-name>ComunicadoController</servlet-name>
         <servlet-class>com.santamariaapostol.controller.ComunicadoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AsistenciaController</servlet-name>
+        <servlet-class>com.santamariaapostol.controller.AsistenciaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ComunicadoController</servlet-name>
         <url-pattern>/ComunicadoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AsistenciaController</servlet-name>
+        <url-pattern>/AsistenciaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
