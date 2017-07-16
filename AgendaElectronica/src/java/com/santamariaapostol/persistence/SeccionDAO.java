@@ -13,4 +13,5 @@ import com.santamariaapostol.entity.Seccion;
  */
 public interface SeccionDAO extends GenericDAO<Seccion> {
     
+    public Seccion buscarPorProfesor(int idProfesor);
 }

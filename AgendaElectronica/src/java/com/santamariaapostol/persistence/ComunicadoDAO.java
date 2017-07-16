@@ -6,6 +6,7 @@
 package com.santamariaapostol.persistence;
 
 import com.santamariaapostol.entity.Comunicado;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import com.santamariaapostol.entity.Comunicado;
  */
 public interface ComunicadoDAO extends GenericDAO<Comunicado>{
     
+    public List<Comunicado> ultimosComunicadosEnviados(int idSeccion);
 }

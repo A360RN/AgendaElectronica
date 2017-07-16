@@ -15,4 +15,6 @@ public class PageHelper {
     public static final String LOGIN_PAGE = "login.jsp";
     
     public static final String DASHBOARD = "dashboard.jsp";
+    public static final String DASHBOARD_PROFESOR_COMUNICADO = "db_profesor_comunicado.jsp";
+    public static final String DASHBOARD_APODERADO_COMUNICADO = "db_apoderado_comunicado.jsp";
 }

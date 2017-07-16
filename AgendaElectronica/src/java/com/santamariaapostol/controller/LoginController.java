@@ -9,11 +9,13 @@ import com.santamariaapostol.entity.Apoderado;
 import com.santamariaapostol.entity.Profesor;
 import com.santamariaapostol.service.LoginService;
 import com.santamariaapostol.util.PageHelper;
+import com.santamariaapostol.util.SessionStringHelpers;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -48,6 +50,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if(action.equals("logout")){
+            logout(request, response);
+        }
     }
 
     /**
@@ -87,18 +93,24 @@ public class LoginController extends HttpServlet {
         
         if(loginService.validarProfesor(profesor)!= null){
             profesor = loginService.validarProfesor(profesor);
-            request.getSession(true).setAttribute("usuario", profesor);
-            request.getSession().setAttribute("tipo_usuario", "profesor");
+            request.getSession(true).setAttribute(SessionStringHelpers.USUARIO, profesor);
+            request.getSession().setAttribute(SessionStringHelpers.TIPO_USUARIO, "profesor");
             response.sendRedirect(PageHelper.DASHBOARD);
         }else if(loginService.validarApoderado(apoderado)!= null){
             apoderado = loginService.validarApoderado(apoderado);
-            request.getSession(true).setAttribute("usuario", apoderado);
-            request.getSession().setAttribute("tipo_usuario", "apoderado");
+            request.getSession(true).setAttribute(SessionStringHelpers.USUARIO, apoderado);
+            request.getSession().setAttribute(SessionStringHelpers.TIPO_USUARIO, "apoderado");
             response.sendRedirect(PageHelper.DASHBOARD);
         }else{
             response.sendRedirect(PageHelper.LOGIN_PAGE);
         }
         
+    }
+
+    private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect(PageHelper.LOGIN_PAGE);
     }
 
 }

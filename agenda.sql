@@ -123,7 +123,7 @@ DROP TABLE IF EXISTS `agenda`.`COMUNICADO` ;
 CREATE TABLE IF NOT EXISTS `agenda`.`COMUNICADO` (
   `idComunicado` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(100) NOT NULL,
-  `cuerpo` VARCHAR(400) NOT NULL,
+  `cuerpo` MEDIUMTEXT NOT NULL,
   `idSeccion` INT NOT NULL,
   PRIMARY KEY (`idComunicado`),
   INDEX `fk_COMUNICADO_SECCION1_idx` (`idSeccion` ASC),
@@ -143,7 +143,7 @@ DROP TABLE IF EXISTS `agenda`.`CITACION` ;
 CREATE TABLE IF NOT EXISTS `agenda`.`CITACION` (
   `idCitacion` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(100) NOT NULL,
-  `cuerpo` VARCHAR(400) NOT NULL,
+  `cuerpo` MEDIUMTEXT NOT NULL,
   `apoderaConfirm` TINYINT NOT NULL DEFAULT 0,
   `profesorConfirm` TINYINT NOT NULL DEFAULT 0,
   `idApoderado` INT NOT NULL,
@@ -305,7 +305,7 @@ DROP TABLE IF EXISTS `agenda`.`OBSERVACION` ;
 CREATE TABLE IF NOT EXISTS `agenda`.`OBSERVACION` (
   `idObservacion` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(100) NOT NULL,
-  `cuerpo` VARCHAR(400) NOT NULL,
+  `cuerpo` MEDIUMTEXT NOT NULL,
   `idProfesor` INT NOT NULL,
   `idAlumno` INT NOT NULL,
   PRIMARY KEY (`idObservacion`),

@@ -16,6 +16,7 @@ public class Comunicado implements Serializable {
     private int idComunicado;
     private String titulo;
     private String cuerpo;
+    private Seccion seccion;
 
     public Comunicado() {
     }
@@ -43,5 +44,15 @@ public class Comunicado implements Serializable {
     public void setCuerpo(String cuerpo) {
         this.cuerpo = cuerpo;
     }
+
+    public Seccion getSeccion() {
+        return seccion;
+    }
+
+    public void setSeccion(Seccion seccion) {
+        this.seccion = seccion;
+    }
+    
+    
 
 }

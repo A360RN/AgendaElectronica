@@ -21,12 +21,12 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="#!">Bienvenido Usuario</a></li>
                 <li><a href="login.jsp">Login</a></li>
-                <li><a href="#!">Salir</a></li>
+                <li><a href="LoginController?action=logout">Salir</a></li>
             </ul>
             <ul class="side-nav" id="sidebar">
                 <li><a href="#!">Bienvenido Usuario</a></li>
                 <li><a href="login.jsp">Login</a></li>
-                <li><a href="#!">Salir</a></li>
+                <li><a href="LoginController?action=logout">Salir</a></li>
             </ul>
         </div>
 
