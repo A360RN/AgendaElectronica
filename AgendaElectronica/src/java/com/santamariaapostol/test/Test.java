@@ -26,7 +26,7 @@ public class Test {
         AsistenciaService asistenciaService = new AsistenciaService();
         Profesor profesor = new Profesor();
         profesor.setIdProfesor(5);
-        List<Alumno> listaAlumnos = asistenciaService.asistenciaDeHoy(profesor);
+        List<Alumno> listaAlumnos = asistenciaService.buscarAsistenciaDeHoyProfesor(profesor);
     }
     
 }

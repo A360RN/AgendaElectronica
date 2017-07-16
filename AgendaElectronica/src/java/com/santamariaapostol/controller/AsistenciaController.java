@@ -6,6 +6,7 @@
 package com.santamariaapostol.controller;
 
 import com.santamariaapostol.entity.Alumno;
+import com.santamariaapostol.entity.Apoderado;
 import com.santamariaapostol.entity.Profesor;
 import com.santamariaapostol.service.AsistenciaService;
 import com.santamariaapostol.util.PageHelper;
@@ -24,7 +25,7 @@ import javax.servlet.http.HttpSession;
  */
 public class AsistenciaController extends HttpServlet {
 
-    private AsistenciaService asistenciaService;
+    private final AsistenciaService asistenciaService;
 
     public AsistenciaController() {
         asistenciaService = new AsistenciaService();
@@ -59,25 +60,49 @@ public class AsistenciaController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String action = request.getParameter("action");
+        if (action.equals("guardar_lista")) {
+            guardarAsistencia(request, response);
+        }
     }
 
     private void redireccionarPorTipoUsuario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String tipoUsuario = session.getAttribute(SessionStringHelpers.TIPO_USUARIO).toString();
-        if(tipoUsuario.equals("profesor")){
+        if (tipoUsuario.equals("profesor")) {
             listarAsistencia(session);
             response.sendRedirect(PageHelper.LISTADO_ASISTENCIA);
-        }else if(tipoUsuario.equals("apoderado")){
-            
+        } else if (tipoUsuario.equals("apoderado")) {
+            miAsistencia(session);
+            response.sendRedirect(PageHelper.DASHBOARD_APODERADO_ASISTENCIA);
         }
     }
 
-    private void listarAsistencia(HttpSession session) {
-        Profesor profesor = (Profesor)session.getAttribute(SessionStringHelpers.USUARIO);
-        List<Alumno> alumnos = asistenciaService.asistenciaDeHoy(profesor);
+    private void miAsistencia(HttpSession session) {
+        Apoderado apoderado = (Apoderado)session.getAttribute(SessionStringHelpers.USUARIO);
+        List<Alumno> alumnos = asistenciaService.buscarAsistenciaDeHoyApoderado(apoderado);
         session.setAttribute(SessionStringHelpers.LISTA_ALUMNOS, alumnos);
+    }
+
+    private void listarAsistencia(HttpSession session)
+            throws ServletException, IOException {
+        Profesor profesor = (Profesor) session.getAttribute(SessionStringHelpers.USUARIO);
+        List<Alumno> alumnos = asistenciaService.buscarAsistenciaDeHoyProfesor(profesor);
+        session.setAttribute(SessionStringHelpers.LISTA_ALUMNOS, alumnos);
+    }
+
+    private void guardarAsistencia(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
+        List<Alumno> alumnos = (List<Alumno>) session.getAttribute(SessionStringHelpers.LISTA_ALUMNOS);
+        for (Alumno a : alumnos) {
+            String estadoAsistencia = request.getParameter("btn" + a.getIdAlumno());
+            a.getMatriculas().get(0).getAsistencias().get(0).setEstado(estadoAsistencia);
+        }
+        asistenciaService.guardarAsistenciaDeHoy(alumnos);
+        response.sendRedirect(PageHelper.DASHBOARD);
     }
 
 }

@@ -6,7 +6,9 @@
 package com.santamariaapostol.service;
 
 import com.santamariaapostol.entity.Alumno;
+import com.santamariaapostol.entity.Apoderado;
 import com.santamariaapostol.entity.Asistencia;
+import com.santamariaapostol.entity.Matricula;
 import com.santamariaapostol.entity.Profesor;
 import com.santamariaapostol.persistence.AlumnoDAO;
 import com.santamariaapostol.persistence.AsistenciaDAO;
@@ -30,7 +32,7 @@ public class AsistenciaService {
         alumnoDAO = new AlumnoDAOMySQLImpl();
     }
     
-    public List<Alumno> asistenciaDeHoy(Profesor profesor){
+    public List<Alumno> buscarAsistenciaDeHoyProfesor(Profesor profesor){
         int idProfesor = profesor.getIdProfesor();
         List<Alumno> alumnos = alumnoDAO.buscarPorProfesor(idProfesor);
         
@@ -56,5 +58,43 @@ public class AsistenciaService {
         
         return alumnos;
     }
+    
+    public List<Alumno> buscarAsistenciaDeHoyApoderado(Apoderado apoderado){
+        int idApoderado = apoderado.getIdApoderado();
+        List<Alumno> alumnos = alumnoDAO.buscarPorApoderado(idApoderado);
+        for(Alumno a: alumnos){
+            Asistencia hoy = asistenciaDAO.asistenciaHoyAlumno(a.getIdAlumno());
+            if(hoy==null){
+                LocalDateTime now = LocalDateTime.now();
+                int day = now.getDayOfMonth();
+                int month = now.getMonthValue();
+                int year = now.getYear();
+                String date = year + " " + month + " " + day;
+                
+                hoy = new Asistencia();
+                hoy.setMatricula(a.getMatriculas().get(0));
+                hoy.setFecha(date);
+                
+                asistenciaDAO.crear(hoy);
+            }
+            List<Asistencia> asistencias = new ArrayList<>();
+            asistencias.add(hoy);
+            List<Matricula> matriculas = new ArrayList<>();
+            Matricula matricula = new Matricula();
+            matriculas.add(matricula);
+            a.setMatriculas(matriculas);
+            a.getMatriculas().get(0).setAsistencias(asistencias);
+        }
+        return alumnos;
+    }
+    
+    public void guardarAsistenciaDeHoy(List<Alumno> alumnos){
+        Asistencia asistenciaHoy;
+        for(Alumno a: alumnos){
+            asistenciaHoy = a.getMatriculas().get(0).getAsistencias().get(0);
+            asistenciaDAO.actualizar(asistenciaHoy);
+        }
+    }
+    
     
 }

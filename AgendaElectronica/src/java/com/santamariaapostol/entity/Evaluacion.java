@@ -19,6 +19,7 @@ public class Evaluacion implements Serializable {
     private double nota;
     private Matricula matricula;
     private Curso curso;
+    private Bimestre bimestre;
 
     public Evaluacion() {
     }
@@ -69,6 +70,14 @@ public class Evaluacion implements Serializable {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public Bimestre getBimestre() {
+        return bimestre;
+    }
+
+    public void setBimestre(Bimestre bimestre) {
+        this.bimestre = bimestre;
     }
 
 }

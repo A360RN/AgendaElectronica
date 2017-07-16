@@ -16,4 +16,8 @@ public class SessionStringHelpers {
     
     public static final String LISTA_COMUNICADOS = "comunicados";
     public static final String LISTA_ALUMNOS = "alumnos";
+    
+    public static final String ASISTENCIA_TARDANZA = "TARDANZA";
+    public static final String ASISTENCIA_INASISTENCIA = "INASISTENCIA";
+    public static final String ASISTENCIA_ASISTIO = "ASISTIO";
 }

@@ -14,9 +14,10 @@ public class PageHelper {
     public static final String INDEX_PAGE = "index.jsp";
     public static final String LOGIN_PAGE = "login.jsp";
     
-    public static final String DASHBOARD = "dashboard.jsp";
+    public static final String DASHBOARD = "home";
     public static final String DASHBOARD_PROFESOR_COMUNICADO = "db_profesor_comunicado.jsp";
     public static final String DASHBOARD_APODERADO_COMUNICADO = "db_apoderado_comunicado.jsp";
     
-    public static final String LISTADO_ASISTENCIA = "lista_asistencia.jsp";
+    public static final String LISTADO_ASISTENCIA = "asistenciaHoy";
+    public static final String DASHBOARD_APODERADO_ASISTENCIA = "db_apoderado_asistencia.jsp";
 }

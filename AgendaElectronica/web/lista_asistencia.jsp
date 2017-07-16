@@ -1,3 +1,4 @@
+<%@page import="com.santamariaapostol.entity.Asistencia"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="com.santamariaapostol.util.SessionStringHelpers"%>
 <%@page import="com.santamariaapostol.entity.Alumno"%>
@@ -25,23 +26,71 @@
         String name = a.getPrimerNombre().concat(" ").concat(a.getSegundoNombre())
                 .concat(" ").concat(a.getApellidoPaterno()).concat(" ")
                 .concat(a.getApellidoMaterno());
+        Asistencia asistenciaHoy = a.getMatriculas().get(0).getAsistencias().get(0);
     %>
-    <div class="row">
+    
+    <h6><%="Alumno: " + name %></h6>
+    
+    <div class="row">      
+        <!-- asistio -->
+        <%if(asistenciaHoy.getEstado().equals(SessionStringHelpers.ASISTENCIA_ASISTIO)){%>
         <div class="input-field inline col s3">
-            <span><%= name %></span>
-        </div>
-        <div class="input-field inline col s3">
-            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>A">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>A" value="ASISTIO" checked>
             <label for="<%=a.getIdAlumno()%>A">Asistio</label>
         </div>
         <div class="input-field inline col s3">
-            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>B">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>B" value="TARDANZA">
             <label for="<%=a.getIdAlumno()%>B">Tardanza</label>
         </div>
         <div class="input-field inline col s3">
-            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>C">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>C" value="INASISTENCIA">
             <label for="<%=a.getIdAlumno()%>C">Inasistencia</label>
         </div>
+        
+        <!-- inasistencia -->
+        <%}else if(asistenciaHoy.getEstado().equals(SessionStringHelpers.ASISTENCIA_INASISTENCIA)){%>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>A" value="ASISTIO">
+            <label for="<%=a.getIdAlumno()%>A">Asistio</label>
+        </div>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>B" value="TARDANZA">
+            <label for="<%=a.getIdAlumno()%>B">Tardanza</label>
+        </div>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>C" value="INASISTENCIA" checked>
+            <label for="<%=a.getIdAlumno()%>C">Inasistencia</label>
+        </div>
+        
+        <!-- tardanza -->
+        <%}else if(asistenciaHoy.getEstado().equals(SessionStringHelpers.ASISTENCIA_TARDANZA)){%>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>A" value="ASISTIO">
+            <label for="<%=a.getIdAlumno()%>A">Asistio</label>
+        </div>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>B" value="TARDANZA" checked>
+            <label for="<%=a.getIdAlumno()%>B">Tardanza</label>
+        </div>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>C" value="INASISTENCIA">
+            <label for="<%=a.getIdAlumno()%>C">Inasistencia</label>
+        </div>
+        
+        <%}else {%>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>A" value="ASISTIO">
+            <label for="<%=a.getIdAlumno()%>A">Asistio</label>
+        </div>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>B" value="TARDANZA">
+            <label for="<%=a.getIdAlumno()%>B">Tardanza</label>
+        </div>
+        <div class="input-field inline col s3">
+            <input type="radio" name="btn<%=a.getIdAlumno()%>" id="<%=a.getIdAlumno()%>C" value="INASISTENCIA">
+            <label for="<%=a.getIdAlumno()%>C">Inasistencia</label>
+        </div> 
+        <%}%>
     </div>
     <%}%>
     <!-- Fin -->
