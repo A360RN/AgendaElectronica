@@ -14,22 +14,6 @@
     </head>
 
     <body>
-        <nav class="green darken-2">
-            <div class="nav-wrapper container">
-                <a href="#!" class="left">I.E.P. Santa Maria Apostol</a>
-                <a href="#!" data-activates="sidebar" class="button-collapse right"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#!">Bienvenido Usuario</a></li>
-                    <li><a href="login.jsp">Login</a></li>
-                    <li><a href="LoginController?action=logout">Salir</a></li>
-                </ul>
-                <ul class="side-nav" id="sidebar">
-                    <li><a href="#!">Bienvenido Usuario</a></li>
-                    <li><a href="login.jsp">Login</a></li>
-                    <li><a href="LoginController?action=logout">Salir</a></li>
-                </ul>
-            </div>
-
-        </nav>
-
+        <jsp:include page="navbar.jsp"></jsp:include>
+           
         <jsp:include page="flash-message.jsp"></jsp:include>

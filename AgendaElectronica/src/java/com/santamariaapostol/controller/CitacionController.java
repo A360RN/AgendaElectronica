@@ -47,7 +47,7 @@ public class CitacionController extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action.equals("decide")) {
-            mostrarListaAlumnos(request, response);
+            redireccionarPorTipoUsuario(request, response);
         }
     }
 
@@ -109,6 +109,17 @@ public class CitacionController extends HttpServlet {
         session.setAttribute(SessionStringHelpers.MESSAGE, SessionStringHelpers.CITACION_ENVIADA_MENSAJE);
         response.sendRedirect(PageHelper.LISTADO_ALUMNOS_CITACION);
 
+    }
+
+    private void redireccionarPorTipoUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String tipoUsuario = session.getAttribute(SessionStringHelpers.TIPO_USUARIO).toString();
+        if (tipoUsuario.equals("profesor")) {
+            mostrarListaAlumnos(request, response);
+            response.sendRedirect(PageHelper.LISTADO_ASISTENCIA);
+        } else if (tipoUsuario.equals("apoderado")) {
+            response.sendRedirect(PageHelper.DASHBOARD);
+        }
     }
 
 }

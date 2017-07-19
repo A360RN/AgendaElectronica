@@ -6,6 +6,10 @@ $(document).ready(function(){
    $('ul.tabs').tabs();
 
    $('.collapsible').collapsible();
+
+   $('.slider').slider({
+        interval: 3000
+    });
 });
 
 

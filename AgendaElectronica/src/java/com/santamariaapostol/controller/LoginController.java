@@ -110,7 +110,7 @@ public class LoginController extends HttpServlet {
     private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect(PageHelper.LOGIN_PAGE);
+        response.sendRedirect(PageHelper.INDEX_PAGE);
     }
 
 }
