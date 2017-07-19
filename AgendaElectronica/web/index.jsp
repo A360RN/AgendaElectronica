@@ -46,7 +46,7 @@
     <div class="row">
         <div class="col m4 s12">
             <div class="icon-block">
-                <h2 class="center"><i class="fa fa-2x fa-newspaper-o"></i></h2>
+                <h2 class="center"><i class="large material-icons">web</i></h2>
                 <h5 class="center">Noticia 1</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eaque ipsa harum repellat illo velit mollitia,
                     quibusdam illum quae deleniti?</p>
@@ -55,7 +55,7 @@
         </div>
         <div class="col m4 s12">
             <div class="icon-block">
-                <h2 class="center"><i class="fa fa-2x fa-newspaper-o"></i></h2>
+                <h2 class="center"><i class="large material-icons">web</i></h2>
                 <h5 class="center">Noticia 2</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quae suscipit nulla nihil, porro error alias
                     qui delectus enim dolorem.</p>
@@ -64,7 +64,7 @@
         </div>
         <div class="col m4 s12">
             <div class="icon-block">
-                <h2 class="center"><i class="fa fa-2x fa-newspaper-o"></i></h2>
+                <h2 class="center"><i class="large material-icons">web</i></h2>
                 <h5 class="center">Noticia 3</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, earum, rem consequatur molestias laudantium
                     cum facere accusantium blanditiis tempora officia.</p>
