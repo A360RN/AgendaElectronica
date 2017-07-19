@@ -17,6 +17,7 @@ public class SessionStringHelpers {
     
     public static final String LISTA_COMUNICADOS = "comunicados";
     public static final String LISTA_ALUMNOS = "alumnos";
+    public static final String ID_ALUMNO = "idAlumno";
     
     public static final String ASISTENCIA_TARDANZA = "TARDANZA";
     public static final String ASISTENCIA_INASISTENCIA = "INASISTENCIA";
@@ -24,5 +25,6 @@ public class SessionStringHelpers {
     
     public static final String ASISTENCIA_GUARDADA_MENSAJE = "Asistencia guardada con éxito";
     public static final String COMUNICADO_ENVIADO_MENSAJE = "Comunicado enviado con éxito";
-    public static final String LOGIN_INVALIDAO = "Usuario o contraseña equivocados";
+    public static final String LOGIN_INVALIDO = "Usuario o contraseña equivocados";
+    public static final String CITACION_ENVIADA_MENSAJE = "Citación enviada con éxito";
 }

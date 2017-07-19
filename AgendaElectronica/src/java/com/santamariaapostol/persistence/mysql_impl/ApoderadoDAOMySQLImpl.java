@@ -11,6 +11,8 @@ import com.santamariaapostol.util.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -75,5 +77,53 @@ public class ApoderadoDAOMySQLImpl implements ApoderadoDAO{
         }
         return apoderado;
     }
+
+    @Override
+    public List<Apoderado> buscarPorProfesor(int idProfesor) {
+        List<Apoderado> apoderados = new ArrayList<>();
+        try {
+            cn = Conexion.ini();
+            sql = "select * from APODERADO ap join ALUMNO al on ap.idApoderado = al.idApoderado"
+                    + " join MATRICULA m on al.idAlumno = m.idAlumno"
+                    + " join SECCION s on m.idSeccion = s.idSeccion"
+                    + " join PROFESOR p on s.idProfesor = p.idProfesor"
+                    + " where p.idProfesor = ?";
+            
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, idProfesor);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Apoderado apoderado = new Apoderado();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return apoderados;
+    }
+
+    @Override
+    public Apoderado buscarPorAlumno(int idAlumno) {
+        Apoderado apoderado = null;
+        try {
+            cn = Conexion.ini();
+            sql = "select * from APODERADO ap join ALUMNO al on ap.idApoderado = al.idApoderado"
+                    + " where al.idAlumno = ?";
+            
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                apoderado = new Apoderado();
+                apoderado.setIdApoderado(rs.getInt("ap.idApoderado"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return apoderado;
+    }
+
     
 }

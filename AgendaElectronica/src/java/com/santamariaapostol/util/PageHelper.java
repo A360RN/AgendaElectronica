@@ -20,4 +20,7 @@ public class PageHelper {
     
     public static final String LISTADO_ASISTENCIA = "asistenciaHoy";
     public static final String DASHBOARD_APODERADO_ASISTENCIA = "db_apoderado_asistencia.jsp";
+    
+    public static final String LISTADO_ALUMNOS_CITACION = "db_profesor_citacion.jsp";
+    public static final String NUEVA_CITACION = "nueva_citacion.jsp";
 }

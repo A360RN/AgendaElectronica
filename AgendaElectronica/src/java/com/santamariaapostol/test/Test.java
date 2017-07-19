@@ -6,10 +6,14 @@
 package com.santamariaapostol.test;
 
 import com.santamariaapostol.entity.Alumno;
+import com.santamariaapostol.entity.Apoderado;
 import com.santamariaapostol.entity.Profesor;
 import com.santamariaapostol.persistence.AlumnoDAO;
+import com.santamariaapostol.persistence.ApoderadoDAO;
 import com.santamariaapostol.persistence.mysql_impl.AlumnoDAOMySQLImpl;
+import com.santamariaapostol.persistence.mysql_impl.ApoderadoDAOMySQLImpl;
 import com.santamariaapostol.service.AsistenciaService;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,11 +26,12 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AlumnoDAO alumnoDAO = new AlumnoDAOMySQLImpl();
-        AsistenciaService asistenciaService = new AsistenciaService();
-        Profesor profesor = new Profesor();
-        profesor.setIdProfesor(5);
-        List<Alumno> listaAlumnos = asistenciaService.buscarAsistenciaDeHoyProfesor(profesor);
+        ApoderadoDAO apoderadoDAO = new ApoderadoDAOMySQLImpl();
+        Apoderado apoderado = new Apoderado();
+        
+        apoderado = apoderadoDAO.buscarPorAlumno(1);
+        
+        System.out.println(apoderado.getIdApoderado());
     }
     
 }
