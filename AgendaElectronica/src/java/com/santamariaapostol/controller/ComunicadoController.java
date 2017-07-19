@@ -13,7 +13,6 @@ import com.santamariaapostol.service.ComunicadoService;
 import com.santamariaapostol.util.PageHelper;
 import com.santamariaapostol.util.SessionStringHelpers;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -83,6 +82,7 @@ public class ComunicadoController extends HttpServlet {
 
         comunicadoService.nuevoComunicado(profesor, comunicado);
         ultimosComunicadosEnviados(session);
+        session.setAttribute(SessionStringHelpers.MESSAGE, SessionStringHelpers.COMUNICADO_ENVIADO_MENSAJE);
         response.sendRedirect(PageHelper.DASHBOARD_PROFESOR_COMUNICADO);
     }
 

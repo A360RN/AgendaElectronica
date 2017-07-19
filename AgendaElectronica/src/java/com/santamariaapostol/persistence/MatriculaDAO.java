@@ -6,6 +6,7 @@
 package com.santamariaapostol.persistence;
 
 import com.santamariaapostol.entity.Matricula;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import com.santamariaapostol.entity.Matricula;
  */
 public interface MatriculaDAO extends GenericDAO<Matricula>{
     
+    public List<Matricula> buscarUltimaMatriculaAlumno(int idAlumno);
 }

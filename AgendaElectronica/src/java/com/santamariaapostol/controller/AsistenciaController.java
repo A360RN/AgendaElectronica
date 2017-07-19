@@ -102,6 +102,7 @@ public class AsistenciaController extends HttpServlet {
             a.getMatriculas().get(0).getAsistencias().get(0).setEstado(estadoAsistencia);
         }
         asistenciaService.guardarAsistenciaDeHoy(alumnos);
+        session.setAttribute(SessionStringHelpers.MESSAGE, SessionStringHelpers.ASISTENCIA_GUARDADA_MENSAJE);
         response.sendRedirect(PageHelper.DASHBOARD);
     }
 

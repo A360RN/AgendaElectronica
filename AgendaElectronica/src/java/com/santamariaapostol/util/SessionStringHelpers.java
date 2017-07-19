@@ -13,6 +13,7 @@ public class SessionStringHelpers {
     
     public static final String USUARIO = "usuario";
     public static final String TIPO_USUARIO = "tipo_usuario";
+    public static final String MESSAGE = "message";
     
     public static final String LISTA_COMUNICADOS = "comunicados";
     public static final String LISTA_ALUMNOS = "alumnos";
@@ -20,4 +21,8 @@ public class SessionStringHelpers {
     public static final String ASISTENCIA_TARDANZA = "TARDANZA";
     public static final String ASISTENCIA_INASISTENCIA = "INASISTENCIA";
     public static final String ASISTENCIA_ASISTIO = "ASISTIO";
+    
+    public static final String ASISTENCIA_GUARDADA_MENSAJE = "Asistencia guardada con éxito";
+    public static final String COMUNICADO_ENVIADO_MENSAJE = "Comunicado enviado con éxito";
+    public static final String LOGIN_INVALIDAO = "Usuario o contraseña equivocados";
 }

@@ -12,8 +12,10 @@ import com.santamariaapostol.entity.Matricula;
 import com.santamariaapostol.entity.Profesor;
 import com.santamariaapostol.persistence.AlumnoDAO;
 import com.santamariaapostol.persistence.AsistenciaDAO;
+import com.santamariaapostol.persistence.MatriculaDAO;
 import com.santamariaapostol.persistence.mysql_impl.AlumnoDAOMySQLImpl;
 import com.santamariaapostol.persistence.mysql_impl.AsistenciaDAOMySQLImpl;
+import com.santamariaapostol.persistence.mysql_impl.MatriculaDAOMySQLImpl;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +28,12 @@ public class AsistenciaService {
     
     private AlumnoDAO alumnoDAO;
     private AsistenciaDAO asistenciaDAO;
+    private MatriculaDAO matriculaDAO;
 
     public AsistenciaService() {
         asistenciaDAO = new AsistenciaDAOMySQLImpl();
         alumnoDAO = new AlumnoDAOMySQLImpl();
+        matriculaDAO = new MatriculaDAOMySQLImpl();
     }
     
     public List<Alumno> buscarAsistenciaDeHoyProfesor(Profesor profesor){
@@ -46,8 +50,12 @@ public class AsistenciaService {
                 String date = year + " " + month + " " + day;
                 
                 hoy = new Asistencia();
+                
+                a.setMatriculas(matriculaDAO.buscarUltimaMatriculaAlumno(a.getIdAlumno()));
+                
                 hoy.setMatricula(a.getMatriculas().get(0));
                 hoy.setFecha(date);
+                hoy.setEstado("INASISTENCIA");
                 
                 asistenciaDAO.crear(hoy);
             }
@@ -71,9 +79,12 @@ public class AsistenciaService {
                 int year = now.getYear();
                 String date = year + " " + month + " " + day;
                 
+                a.setMatriculas(matriculaDAO.buscarUltimaMatriculaAlumno(a.getIdAlumno()));
+                
                 hoy = new Asistencia();
                 hoy.setMatricula(a.getMatriculas().get(0));
                 hoy.setFecha(date);
+                hoy.setEstado("INASISTENCIA");
                 
                 asistenciaDAO.crear(hoy);
             }
